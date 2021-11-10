@@ -46,11 +46,11 @@ function y = SOPDT(x, k)
 endfunction
 
 function e=SOPDT_errorFunc(k, z)
-    e=real(z(2,:) - SOPDT(z(1,:), k)) + imag(z(2,:) - SOPDT(z(1,:), k))
+    e=(real(z(2,:) - SOPDT(z(1,:), k)) + imag(z(2,:) - SOPDT(z(1,:), k)))^2
 endfunction
 
 function e=FOPDT_errorFunc(k, z)
-    e=z(2,:) - FOPDT(z(1,:), k)
+    e=(z(2,:) - FOPDT(z(1,:), k))^2
 endfunction
 
 function [k, e]=ProcessApproximate(x, y, process, startVals, weights)
