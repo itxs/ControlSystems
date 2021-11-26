@@ -78,3 +78,13 @@ function [k, e]=ProcessApproximate(x, y, process, startVals, weights)
     disp("Coeffs: ", k)
     disp("Error sum: ", e)
 endfunction
+
+//function [p, i, d, e]=FindPID(k)
+    // Plans of adding automatic PID calculation as H2 controller
+    // PID tf is P+I/s+D*s = (P*s+I+D*s^2)/s
+    // H = (PID tf) * (process tf) = (D*s^2+P*s+I)/(s*(a*s^2+b*s+c))
+    // sys = tf2ss(H/(1+H)), considering unity negative feedback
+    // response = csim('step', t, sys)
+    // H2norm = sum(stepfunction(t_i)^2 - response(t_i)^2, i)
+    // minimize H norm, search for global minimum
+//endfunction
